@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="lg-frm">
-        <form action="./inc/login.php" method="post">
-            <input type="text" name="username">
-            <input type="password" name="password">
-            <button type="submit" class="lg-btn">Login</button>
-        </form>
+    <div class="main-sec">
+        <div class="lg-frm">
+            <form action="./inc/login.php" method="post">
+                <input type="text" name="username">
+                <input type="password" name="password">
+                <button type="submit" class="lg-btn">Login</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
