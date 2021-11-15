@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     // --Add dbh file--
     require_once "./dbh.php";
 
@@ -17,6 +15,7 @@
             // Save row
             $row = mysqli_fetch_assoc($result);
             // Create session variables
+            session_start();
             $_SESSION["user_id"] = $row["user_id"];
             $_SESSION["username"] = $row["username"];
             $_SESSION["user_type"] = $row["user_type"];

@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    // Logged in
+    if(isset($_SESSION["user_id"])){
+        header("location: ./dashboard.php");
+    }
+    // Header
     require_once "./inc/header.php";
 ?>
 <body>
