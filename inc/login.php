@@ -1,5 +1,5 @@
 <?php
-    session_start()
+    session_start();
 
     // --Add dbh file--
     require_once "./dbh.php";
@@ -20,6 +20,8 @@
             $_SESSION["user_id"] = $row["user_id"];
             $_SESSION["username"] = $row["username"];
             $_SESSION["user_type"] = $row["user_type"];
+
+            header("location: ../dashboard.php");
         }
     }
 ?>
