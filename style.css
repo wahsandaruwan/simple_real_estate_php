@@ -92,8 +92,13 @@ a:hover, button:hover{
     margin: 0 10px;
 }
 
-.sum-box i{
-    font-size: 4rem;
-    margin-bottom: 10px;
+.sum-box img{
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.sum-box .num{
+    background-color: #5dd1d1;
+    padding: 10px;
 }
 
