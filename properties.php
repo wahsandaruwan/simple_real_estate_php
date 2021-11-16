@@ -20,7 +20,7 @@
         <h1>Manage Properties</h1>
     </div>
     <div class="main-sec">
-        <!-- Property form -->
+        <!-- Properties form -->
         <div class="common-frm">
             <h2>
                 <?php
@@ -98,7 +98,7 @@
                 ?>
             </form>
         </div>
-        <!-- Property table -->
+        <!-- Properties table -->
         <div class="data-tbl">
             <table>
                 <thead>
