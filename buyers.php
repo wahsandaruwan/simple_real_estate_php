@@ -54,7 +54,7 @@
                     }
                 ?>
             " method="post">
-                <input type="number" name="nic_num" value="<?php if(isset($_GET["edit"])) echo $row["nic_number"]; ?>" placeholder="Enter the nic number..." required <?php if(isset($_GET["edit"])) echo "style='pointer-events: none;'"; ?>>
+                <input type="text" name="nic_num" value="<?php if(isset($_GET["edit"])) echo $row["nic_number"]; ?>" placeholder="Enter the nic number..." required <?php if(isset($_GET["edit"])) echo "style='pointer-events: none;'"; ?>>
                 <input type="text" name="name" value="<?php if(isset($_GET["edit"])) echo $row["Name"]; ?>" placeholder="Enter the name..." required>
                 <input type="text" name="address" value="<?php if(isset($_GET["edit"])) echo $row["Address"]; ?>" placeholder="Enter the address..." required>
                 <input type="text" name="reg_details" value="<?php if(isset($_GET["edit"])) echo $row["Reg_details"]; ?>" placeholder="Enter the registration details..." required>
