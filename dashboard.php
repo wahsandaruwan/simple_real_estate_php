@@ -17,6 +17,7 @@
         require_once "./inc/navbar.php";
     ?>
     <div class="main-sec">
+        <!-- Number of properties box -->
         <div class="sum-box">
             <img src="./images/home.png" alt="">
             <h2>Number of Properties</h2>
@@ -35,6 +36,7 @@
                 ?>
             </h2>
         </div>
+        <!-- Number of buyers box -->
         <div class="sum-box">
             <img src="./images/buyers.png" alt="">
             <h2>Number of Buyers</h2>
@@ -53,6 +55,7 @@
                 ?>
             </h2>
         </div>
+        <!-- Number of workers box -->
         <div class="sum-box">
             <img src="./images/workers.png" alt="">
             <h2>Number of Workers</h2>

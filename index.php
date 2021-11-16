@@ -9,6 +9,7 @@
 ?>
 <body>
     <div class="main-sec">
+        <!-- Login form -->
         <div class="common-frm">
             <h2>Login</h2>
             <form action="./inc/login.php" method="post">

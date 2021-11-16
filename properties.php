@@ -20,6 +20,7 @@
         <h1>Manage Properties</h1>
     </div>
     <div class="main-sec">
+        <!-- Property form -->
         <div class="common-frm">
             <h2>
                 <?php
@@ -97,10 +98,12 @@
                 ?>
             </form>
         </div>
+        <!-- Property table -->
         <div class="data-tbl">
             <table>
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>ID</th>
                         <th>Area</th>
                         <th>Estimated Value</th>
@@ -117,8 +120,12 @@
                         $sql = "SELECT * FROM property";
                         $result = mysqli_query($conn, $sql);
                         if(mysqli_num_rows($result) > 0){
-                            while ($row = mysqli_fetch_array($result)) {?>
+                            $count = 0;
+                            while ($row = mysqli_fetch_array($result)) { 
+                                $count++;
+                            ?>
                                 <tr>
+                                <td><?php echo $count; ?></td>
                                 <td><?php echo $row["identification_num"]; ?></td>
                                 <td><?php echo $row["area"]; ?></td>
                                 <td><?php echo $row["estimated_value"]; ?></td>
