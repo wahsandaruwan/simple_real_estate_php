@@ -1,5 +1,5 @@
 <?php
-    // --Add dbh file--
+    // --Db Conn--
     require_once "./dbh.php";
 
     if(isset($_POST["lg-btn"])){
