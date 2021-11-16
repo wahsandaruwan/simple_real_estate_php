@@ -1,7 +1,7 @@
 <?php
     session_start();
     // Logged in
-    if(isset($_SESSION["user_id"])){
+    if(isset($_SESSION["username"])){
         header("location: ./dashboard.php");
     }
     // Header
@@ -14,7 +14,7 @@
             <form action="./inc/login.php" method="post">
                 <input type="text" name="username" placeholder="Enter your username..." required>
                 <input type="password" name="password" placeholder="Enter your password..." required>
-                <button type="submit" name="lg-btn" class="lg-btn">Login</button>
+                <button type="submit" name="lg-btn" class="frm-btn">Login</button>
             </form>
         </div>
     </div>

@@ -136,6 +136,57 @@ a:hover, button:hover{
     background-color: #5dd1d1;
 }
 
+/* Table */
+.data-tbl{
+    max-width: 800px;
+    width: 100%;
+    max-height: 500px;
+    background-color: #fff;
+    margin-left: 20px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.data-tbl table{
+    width: 100%;
+    background-color: #fff;
+}
+
+.data-tbl table, 
+.data-tbl table th, 
+.data-tbl table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.data-tbl table th,
+.data-tbl table td{
+    padding: 12px;
+}
+
+.data-tbl table th{
+    background-color: #5dd1d1;
+}
+
+.data-tbl .btn-tbl{
+    padding: 8px;
+    color: #000;
+    font-size: 0.8rem;
+}
+
+.data-tbl .btn-edit{
+    background-color: #1fac55;
+}
+
+.data-tbl .btn-del{
+    background-color: #ac2706;
+}
+
+.data-tbl .btn-tbl:hover{
+    background-color: #000;
+    color: #fff;
+}
+
 /* -----Dashboard page----- */
 .sum-box{
     background-color: #fff;

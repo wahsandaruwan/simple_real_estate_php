@@ -1,7 +1,7 @@
 <?php
     session_start();
     // Not logged in
-    if(!isset($_SESSION["user_id"])){
+    if(!isset($_SESSION["username"])){
         header("location: ./index.php");
     }
 
@@ -12,16 +12,10 @@
     require_once "./inc/dbh.php";
 ?>
 <body>
-    <div class="nav-bar">
-        <div class="logo"><span>Real Estate</span> Company</div>
-        <ul class="menu">
-            <li><a href="./dashboard.php">Dashboard</a></li>
-            <li><a href="./properties.php">Manage Properties</a></li>
-            <li><a href="./buyers.php">Manage Buyers</a></li>
-            <li><a href="./inc/logout.php">Logout</a></li>
-            <li class="user">Welcome User</li>
-        </ul>
-    </div>
+    <?php
+        // Navbar
+        require_once "./inc/navbar.php";
+    ?>
     <div class="main-sec">
         <div class="sum-box">
             <img src="./images/home.png" alt="">
