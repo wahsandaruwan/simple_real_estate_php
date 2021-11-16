@@ -16,12 +16,31 @@
         // Navbar
         require_once "./inc/navbar.php";
     ?>
+    <div class="title">
+        <h1>Manage Properties</h1>
+    </div>
     <div class="main-sec">
         <div class="common-frm">
-            <h2>Manage Properties</h2>
+            <h2>Add Property</h2>
             <form action="./inc/login.php" method="post">
-                <input type="text" name="username" placeholder="Enter your username..." required>
-                <input type="password" name="password" placeholder="Enter your password..." required>
+                <input type="text" name="username" placeholder="Enterthe the area..." required>
+                <input type="text" name="username" placeholder="Enterthe the estimated value..." required>
+                <div class="drop-down">
+                    <label for="sale_type">Enter sale type...</label>
+                    <select name="sale_type" id="sale_type">
+                        <option value="1">Sale</option>
+                        <option value="2">Rent</option>
+                        <option value="3">Lease</option>
+                    </select>
+                </div>
+                <input type="text" name="username" placeholder="Enterthe the property address..." required>
+                <div class="drop-down">
+                    <label for="property_type">Enter property type...</label>
+                    <select name="property_type" id="property_type">
+                        <option value="1">House</option>
+                        <option value="2">Land</option>
+                    </select>
+                </div>
                 <button type="submit" name="prop-btn" class="frm-btn">Save</button>
             </form>
         </div>

@@ -112,6 +112,15 @@ a:hover, button:hover{
     background-color: #5dd1d1;
 }
 
+/* Page title */
+.title{
+    position: absolute;
+    top: 150px;
+    z-index: 100;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* Main section */
 .main-sec{
     position: absolute;
@@ -203,6 +212,24 @@ a:hover, button:hover{
 .sum-box .num{
     background-color: #5dd1d1;
     padding: 10px;
+}
+
+/* -----Property page----- */
+.drop-down{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+
+.drop-down label{
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.drop-down select{
+    height: 40px;
+    border: none;
 }
 
 
