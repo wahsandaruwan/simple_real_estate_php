@@ -70,6 +70,7 @@
                     ?>
                 </button>
                 <?php
+                    // Messages
                     if(isset($_GET["success"])){
                         echo "<div class='msg success'>Successfully executed!</div>";
                     }
