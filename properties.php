@@ -21,27 +21,80 @@
     </div>
     <div class="main-sec">
         <div class="common-frm">
-            <h2>Add Property</h2>
-            <form action="./inc/login.php" method="post">
-                <input type="text" name="username" placeholder="Enterthe the area..." required>
-                <input type="text" name="username" placeholder="Enterthe the estimated value..." required>
+            <h2>
+                <?php
+                    if(isset($_GET["edit"])){
+                        echo "Update Property";
+                    }
+                    else{
+                        echo "Add Property";
+                    }
+                ?>
+            </h2>
+            <?php
+                // Get property data after edit button clicked
+                if(isset($_GET["edit"])){
+                    $id = $_GET["edit"];
+                    $sql = "SELECT * FROM property WHERE identification_num ='$id'";
+                    $result = mysqli_query($conn, $sql);
+
+                    if(mysqli_num_rows($result) === 1){
+                        $row = mysqli_fetch_assoc($result);
+                    }
+                }
+            ?>
+            <form action="
+                <?php 
+                    if(isset($_GET["edit"])) {
+                        echo "./inc/updateProperty.php";
+                    } 
+                    else{
+                        echo "./inc/addProperty.php";
+                    }
+                ?>
+            " method="post">
+                <input type="number" name="id_num" value="<?php if(isset($_GET["edit"])) echo $row["identification_num"]; ?>" placeholder="Enter the identification number..." required <?php if(isset($_GET["edit"])) echo "style='pointer-events: none;'"; ?>>
+                <input type="number" name="area" value="<?php if(isset($_GET["edit"])) echo $row["area"]; ?>" placeholder="Enter the area..." required>
+                <input type="number" name="est_val" value="<?php if(isset($_GET["edit"])) echo $row["estimated_value"]; ?>" placeholder="Enter the estimated value..." required>
                 <div class="drop-down">
-                    <label for="sale_type">Enter sale type...</label>
+                    <label for="sale_type">Enter the sale type...</label>
                     <select name="sale_type" id="sale_type">
-                        <option value="1">Sale</option>
-                        <option value="2">Rent</option>
-                        <option value="3">Lease</option>
+                        <option value="1" <?php if(isset($_GET["edit"]) && $row["sale_type_id"] == 1) echo "selected"; ?>>Sale</option>
+                        <option value="2" <?php if(isset($_GET["edit"]) && $row["sale_type_id"] == 2) echo "selected"; ?>>Rent</option>
+                        <option value="3" <?php if(isset($_GET["edit"]) && $row["sale_type_id"] == 3) echo "selected"; ?>>Lease</option>
                     </select>
                 </div>
-                <input type="text" name="username" placeholder="Enterthe the property address..." required>
+                <input type="text" name="prop_addr" value="<?php if(isset($_GET["edit"])) echo $row["property_address"]; ?>" placeholder="Enter the property address..." required>
                 <div class="drop-down">
-                    <label for="property_type">Enter property type...</label>
+                    <label for="property_type">Enter the property type...</label>
                     <select name="property_type" id="property_type">
-                        <option value="1">House</option>
-                        <option value="2">Land</option>
+                        <option value="1" <?php if(isset($_GET["edit"]) && $row["property_type_id"] == 1) echo "selected"; ?>>House</option>
+                        <option value="2" <?php if(isset($_GET["edit"]) && $row["property_type_id"] == 2) echo "selected"; ?>>Land</option>
                     </select>
                 </div>
-                <button type="submit" name="prop-btn" class="frm-btn">Save</button>
+                <button type="submit" name="prop-btn" class="frm-btn">
+                    <?php
+                        if(isset($_GET["edit"])){
+                            echo "Update";
+                        }
+                        else{
+                            echo "Add";
+                        }
+                    ?>
+                </button>
+                <?php
+                    if(isset($_GET["success"])){
+                        echo "<div class='msg success'>Successfully executed!</div>";
+                    }
+                    else if(isset($_GET["err"])){
+                        if($_GET["err"] === "idexist"){
+                            echo "<div class='msg err'>ID number already available!</div>";
+                        }
+                        else{
+                            echo "<div class='msg err'>Failed to execute!</div>";
+                        }
+                    }
+                ?>
             </form>
         </div>
         <div class="data-tbl">
@@ -59,76 +112,48 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>2</td>
-                        <td>1000</td>
-                        <td>100000</td>
-                        <td>Lease</td>
-                        <td>Panadura</td>
-                        <td>House</td>
-                        <td><a class="btn-tbl btn-edit" href="#">Edit</a></td>
-                        <td><a class="btn-tbl btn-del" href="#">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1000</td>
-                        <td>100000</td>
-                        <td>Lease</td>
-                        <td>Panadura</td>
-                        <td>House</td>
-                        <td><a class="btn-tbl btn-edit" href="#">Edit</a></td>
-                        <td><a class="btn-tbl btn-del" href="#">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1000</td>
-                        <td>100000</td>
-                        <td>Lease</td>
-                        <td>Panadura</td>
-                        <td>House</td>
-                        <td><a class="btn-tbl btn-edit" href="#">Edit</a></td>
-                        <td><a class="btn-tbl btn-del" href="#">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1000</td>
-                        <td>100000</td>
-                        <td>Lease</td>
-                        <td>Panadura</td>
-                        <td>House</td>
-                        <td><a class="btn-tbl btn-edit" href="#">Edit</a></td>
-                        <td><a class="btn-tbl btn-del" href="#">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1000</td>
-                        <td>100000</td>
-                        <td>Lease</td>
-                        <td>Panadura</td>
-                        <td>House</td>
-                        <td><a class="btn-tbl btn-edit" href="#">Edit</a></td>
-                        <td><a class="btn-tbl btn-del" href="#">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1000</td>
-                        <td>100000</td>
-                        <td>Lease</td>
-                        <td>Panadura</td>
-                        <td>House</td>
-                        <td><a class="btn-tbl btn-edit" href="#">Edit</a></td>
-                        <td><a class="btn-tbl btn-del" href="#">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1000</td>
-                        <td>100000</td>
-                        <td>Lease</td>
-                        <td>Panadura</td>
-                        <td>House</td>
-                        <td><a class="btn-tbl btn-edit" href="#">Edit</a></td>
-                        <td><a class="btn-tbl btn-del" href="#">Delete</a></td>
-                    </tr>
+                    <?php
+                        // Populate property table data
+                        $sql = "SELECT * FROM property";
+                        $result = mysqli_query($conn, $sql);
+                        if(mysqli_num_rows($result) > 0){
+                            while ($row = mysqli_fetch_array($result)) {?>
+                                <tr>
+                                <td><?php echo $row["identification_num"]; ?></td>
+                                <td><?php echo $row["area"]; ?></td>
+                                <td><?php echo $row["estimated_value"]; ?></td>
+                                <td>
+                                    <?php
+                                        // Sale type
+                                        if($row["sale_type_id"] == 1){
+                                            echo "Sale";
+                                        }
+                                        else if($row["sale_type_id"] == 2){
+                                            echo "Rent";
+                                        }
+                                        else{
+                                            echo "Lease";
+                                        }
+                                    ?>
+                                </td>
+                                <td><?php echo $row["property_address"]; ?></td>
+                                <td>
+                                    <?php 
+                                        // Property type
+                                        if($row["property_type_id"] == 1){
+                                            echo "House";
+                                        }
+                                        else{
+                                            echo "Land";
+                                        }
+                                    ?>
+                                </td>
+                                <td><a class='btn-tbl btn-edit' href='./properties.php?edit=<?php echo $row["identification_num"]; ?>'>Edit</a></td>
+                                <td><a class='btn-tbl btn-del' href='./inc/deleteProperty.php?del=<?php echo $row["identification_num"]; ?>'>Delete</a></td>
+                                </tr>
+                            <?php }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>

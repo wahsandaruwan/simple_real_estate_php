@@ -115,7 +115,7 @@ a:hover, button:hover{
 /* Page title */
 .title{
     position: absolute;
-    top: 150px;
+    top: 130px;
     z-index: 100;
     left: 50%;
     transform: translateX(-50%);
@@ -194,6 +194,23 @@ a:hover, button:hover{
 .data-tbl .btn-tbl:hover{
     background-color: #000;
     color: #fff;
+}
+
+/* Success and error messages */
+.msg{
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.err{
+    background-color: #ac2706;
+}
+
+.success{
+    background-color: #1fac55;
 }
 
 /* -----Dashboard page----- */
